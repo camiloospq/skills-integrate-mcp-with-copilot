@@ -5,7 +5,8 @@ A super simple FastAPI application that allows students to view and sign up for 
 ## Features
 
 - View all available extracurricular activities
-- Sign up for activities
+- Teacher login with token-based auth
+- Role-based protection for sign up/unregister operations
 
 ## Getting Started
 
@@ -30,7 +31,25 @@ A super simple FastAPI application that allows students to view and sign up for 
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| POST   | `/auth/login`                                                     | Teacher login, returns bearer token                                |
+| GET    | `/auth/me`                                                        | Validate token and return teacher session info                     |
+| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up a student (teacher auth required)                          |
+| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Unregister a student (teacher auth required)                   |
+
+## Teacher Credentials
+
+Teacher usernames/passwords are stored in `teachers.json` for local development.
+
+Example:
+
+```json
+{
+   "mr_rivera": "teach123",
+   "ms_nguyen": "classroom456"
+}
+```
+
+Use these credentials in the header login form, then all write operations send `Authorization: Bearer <token>`.
 
 ## Data Model
 
