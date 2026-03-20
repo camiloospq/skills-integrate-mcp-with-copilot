@@ -8,6 +8,15 @@
   </head>
   <body>
     <header>
+      <div id="auth-panel">
+        <div id="auth-status" class="logged-out">Not logged in</div>
+        <form id="login-form" autocomplete="off">
+          <input type="text" id="username" placeholder="Teacher username" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit" id="login-button">Login</button>
+          <button type="button" id="logout-button" class="hidden">Logout</button>
+        </form>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>

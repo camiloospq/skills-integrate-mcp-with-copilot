@@ -24,6 +24,45 @@ header {
   border-radius: 5px;
 }
 
+#auth-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#auth-status {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#auth-status.logged-in {
+  color: #c8e6c9;
+}
+
+#auth-status.logged-out {
+  color: #ffccbc;
+}
+
+#login-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+#login-form input {
+  border: 1px solid #9fa8da;
+  border-radius: 4px;
+  padding: 7px 10px;
+  min-width: 180px;
+}
+
+#login-form button {
+  padding: 8px 12px;
+}
+
 header h1 {
   margin-bottom: 10px;
 }
@@ -123,6 +162,11 @@ section h3 {
 
 .delete-btn:hover {
   background-color: #ffebee;
+}
+
+.delete-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .participants-section p {
